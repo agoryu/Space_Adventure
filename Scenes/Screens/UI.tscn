@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Screens/UI.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Screens/Menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Screens/StartButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Screens/QuitButton.tscn" type="PackedScene" id=4]
+
+[node name="UI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -120.0
+margin_right = -80.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.968627, 0.0392157, 0.0392157, 1 )
+text = "0 / 0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.968627, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -7.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 0.0862745, 0.623529, 0.184314, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_right = 192.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.968627, 0.0392157, 0.0392157, 1 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = 192.0
+margin_right = 24.0
+margin_bottom = 232.0
+
+[node name="Start" parent="Menu" instance=ExtResource( 3 )]
+margin_right = 45.0
+text = "Retry"
+
+[node name="Quit" parent="Menu" instance=ExtResource( 4 )]
+text = "Quit"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

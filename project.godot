@@ -1,0 +1,65 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "ObjectGame",
+"class": "Bomb",
+"language": "GDScript",
+"path": "res://Scripts/Objects/Bomb.gd"
+}, {
+"base": "ObjectGame",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Scripts/Objects/Card.gd"
+}, {
+"base": "Area2D",
+"class": "ObjectGame",
+"language": "GDScript",
+"path": "res://Scripts/Objects/ObjectGame.gd"
+} ]
+_global_script_class_icons={
+"Bomb": "",
+"Card": "",
+"ObjectGame": ""
+}
+
+[application]
+
+config/name="Space_Adventure"
+run/main_scene="res://Scenes/Levels/Level1.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
+[display]
+
+window/size/height=768
+
+[layer_names]
+
+2d_render/layer_1="level"
+2d_render/layer_2="actor"
+2d_physics/layer_1="level"
+2d_physics/layer_2="actor"
+2d_physics/layer_3="coin"
+2d_physics/layer_4="object"
+2d_physics/layer_5="door"
+2d_physics/layer_6="explode_wall"
+2d_physics/layer_7="explosion"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
