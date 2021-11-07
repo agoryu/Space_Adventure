@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "ObjectGame",
 "language": "GDScript",
 "path": "res://Scripts/Objects/ObjectGame.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scripts/Actors/Player.gd"
 } ]
 _global_script_class_icons={
 "Bomb": "",
 "Card": "",
-"ObjectGame": ""
+"ObjectGame": "",
+"Player": ""
 }
 
 [application]

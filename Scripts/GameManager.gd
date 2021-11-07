@@ -45,6 +45,9 @@ func set_score(value : int):
 func add_time_to_score(time : int):
 	self.score += time * 10
 	
+func add_bonus_score(value : int):
+	self.score += value
+	
 func free_player_object():
 	emit_signal("free_player_object")
 	

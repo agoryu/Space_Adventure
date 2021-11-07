@@ -20,32 +20,20 @@ __meta__ = {
 }
 
 [node name="VisibilityNotifier2D2" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0, -104 )
+position = Vector2( 0, -88 )
 scale = Vector2( 1.6, 0.4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="VisibilityNotifier2D5" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0, 104 )
+position = Vector2( 0, 88 )
 scale = Vector2( 1.6, 0.4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="VisibilityNotifier2D3" type="VisibilityNotifier2D" parent="."]
-position = Vector2( -104, 0 )
+position = Vector2( -88, 0 )
 scale = Vector2( 0.4, 1.6 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="VisibilityNotifier2D4" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 104, 0 )
+position = Vector2( 88, 0 )
 scale = Vector2( 0.4, 1.6 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.5
@@ -62,18 +50,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hand" type="Position2D" parent="."]
-position = Vector2( 16, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="Shadow" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="Shadow"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
+color = Color( 0.0117647, 0.184314, 0.964706, 0.584314 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Hand" type="Position2D" parent="."]
+position = Vector2( 16, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="screen_exited" from="VisibilityNotifier2D2" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="screen_exited" from="VisibilityNotifier2D5" to="." method="_on_VisibilityNotifier2D_screen_exited"]
