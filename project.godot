@@ -55,6 +55,7 @@ window/size/height=768
 2d_physics/layer_5="door"
 2d_physics/layer_6="explode_wall"
 2d_physics/layer_7="explosion"
+2d_physics/layer_8="end"
 
 [physics]
 

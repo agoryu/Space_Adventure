@@ -5,8 +5,10 @@ class_name Bomb
 onready var explosion = $Explosion/CollisionShape2D
 onready var timer_start = $TimerStart
 onready var timer_explosion = $TimerExplosion
+onready var animation = $AnimationPlayer
 
 func start_bomb():
+	animation.play("calculation")
 	timer_start.start()
 
 func _on_TimerStart_timeout():

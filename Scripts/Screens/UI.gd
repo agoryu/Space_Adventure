@@ -6,6 +6,7 @@ onready var time_label = $Time
 onready var message_label = $Message
 onready var score_label = $ScoreLabel
 onready var menu = $Menu
+onready var animation = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,8 @@ func _ready():
 	GameManager.connect("start_timer", self, 'start_timer')
 	GameManager.connect("player_win", self, 'player_win')
 	GameManager.connect("update_score", self, 'update_score')
+	GameManager.connect("all_coin_take", self, "go_back_message")
+	animation.play("instruction")
 
 func _physics_process(delta):
 	var time_value = timer.time_left
@@ -30,13 +33,18 @@ func player_win():
 	timer.paused = true
 	GameManager.add_time_to_score(timer.time_left)
 	message_label.text = 'CONGRATULATION'
+	message_label.visible = true
 	message_label.set("custom_colors/font_color", Color(22.0/255.0, 159.0/255.0, 47.0/255.0, 1))
 
 func _on_Timer_timeout():
 	GameManager.player_loose()
 	message_label.text = 'GAME OVER'
+	message_label.visible = true
 	message_label.set("custom_colors/font_color", Color(247.0/255.0, 10.0/255.0, 10.0/255.0, 1))
 	menu.visible = true
 	
 func update_score(score : int):
 	score_label.text = str(score)
+	
+func go_back_message():
+	animation.play("end")

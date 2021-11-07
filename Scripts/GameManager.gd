@@ -6,6 +6,7 @@ signal update_score
 signal start_timer
 signal player_win
 signal free_player_object
+signal all_coin_take
 
 onready var tree = get_tree()
 
@@ -13,7 +14,7 @@ const SCORE_VALUE : int = 100
 
 var score = 0 setget set_score
 var coin = 0
-var total_coin = 0
+var total_coin = 10000
 
 func move_cam(direction : Vector2):
 	emit_signal("move_cam", direction)
@@ -24,11 +25,10 @@ func update_score_with_coin():
 	update_coin_ui(coin, total_coin)
 	
 	if coin == total_coin:
-		tree.paused = true
-		emit_signal("player_win")
+		emit_signal("all_coin_take")
 	
 func update_coin_ui(coin_value : int, total_coin_value : int):
-	if total_coin == 0:
+	if total_coin == 10000:
 		total_coin = total_coin_value
 	emit_signal("update_coin", coin_value, total_coin_value)
 	
@@ -53,3 +53,7 @@ func start_game():
 	coin = 0
 	tree.paused = false
 	tree.change_scene("res://Scenes/Levels/Level1.tscn")
+	
+func player_win():
+	tree.paused = true
+	emit_signal("player_win")
