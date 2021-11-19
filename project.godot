@@ -19,6 +19,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Objects/Card.gd"
 }, {
+"base": "Node",
+"class": "CustomSortScore",
+"language": "GDScript",
+"path": "res://Scripts/Score/CustomSortScore.gd"
+}, {
+"base": "Control",
+"class": "EndGameScreen",
+"language": "GDScript",
+"path": "res://Scripts/Screens/EndGameScreen.gd"
+}, {
+"base": "Control",
+"class": "Letter",
+"language": "GDScript",
+"path": "res://Scripts/Screens/Elements/Letter.gd"
+}, {
 "base": "Area2D",
 "class": "ObjectGame",
 "language": "GDScript",
@@ -28,12 +43,21 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scripts/Actors/Player.gd"
+}, {
+"base": "Node",
+"class": "ScoreManager",
+"language": "GDScript",
+"path": "res://Scripts/Score/ScoreManager.gd"
 } ]
 _global_script_class_icons={
 "Bomb": "",
 "Card": "",
+"CustomSortScore": "",
+"EndGameScreen": "",
+"Letter": "",
 "ObjectGame": "",
-"Player": ""
+"Player": "",
+"ScoreManager": ""
 }
 
 [application]

@@ -5,6 +5,7 @@ class_name Player
 signal take_bomb
 
 onready var hand = $Hand
+onready var audio = $AudioStreamPlayer2D
 export var speed : int = 300
 
 var bonus_speed : int = 0
@@ -42,6 +43,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Area2D_area_entered(area):
 	if area is ObjectGame:
+		audio.play()
 		object = area
 		change_object = true
 		

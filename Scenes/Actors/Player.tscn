@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Objects/object.wav" type="AudioStream" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 24 )
@@ -79,6 +80,9 @@ position = Vector2( 16, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="screen_exited" from="VisibilityNotifier2D2" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="screen_exited" from="VisibilityNotifier2D5" to="." method="_on_VisibilityNotifier2D_screen_exited"]

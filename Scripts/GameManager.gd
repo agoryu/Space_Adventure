@@ -9,12 +9,16 @@ signal free_player_object
 signal all_coin_take
 
 onready var tree = get_tree()
+onready var score_manager = ScoreManager.new()
 
 const SCORE_VALUE : int = 100
 
 var score = 0 setget set_score
 var coin = 0
 var total_coin = 10000
+
+func load_data():
+	score_manager.load_data()
 
 func move_cam(direction : Vector2):
 	emit_signal("move_cam", direction)
@@ -60,3 +64,9 @@ func start_game():
 func player_win():
 	tree.paused = true
 	emit_signal("player_win")
+	
+func add_score(name: String):
+	score_manager.save_score(score, name)
+	
+func get_scores():
+	return score_manager.scores

@@ -1,49 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Screens/UI.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Screens/Menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Screens/StartButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Screens/QuitButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Screens/instruction.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Screens/Pixellari.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/Screens/UI.tres" type="Theme" id=7]
+[ext_resource path="res://Assets/Screens/alarm.wav" type="AudioStream" id=8]
 
-[sub_resource type="Animation" id=1]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Message:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ "Go back now!" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Message:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("TextureRect:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=5]
+Label/colors/font_color = Color( 0.913725, 0.0509804, 0.0509804, 1 )
+Label/fonts/font = SubResource( 4 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "end"
@@ -103,6 +72,58 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "time"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("InGame/Time:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InGame/Time:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 481, 0 ), Vector2( 472, 0 ), Vector2( 481, 0 ), Vector2( 472, 0 ), Vector2( 481, 0 ), Vector2( 472, 0 ), Vector2( 481, 0 ), Vector2( 472, 0 ), Vector2( 481, 0 ), Vector2( 472, 0 ), Vector2( 481, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Alert:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.976471, 0.0117647, 0.0117647, 0 ), Color( 0.976471, 0.0117647, 0.0117647, 0.490196 ), Color( 0.976471, 0.0117647, 0.0117647, 0 ), Color( 0.976471, 0.0117647, 0.0117647, 0.490196 ), Color( 0.976471, 0.0117647, 0.0117647, 0 ), Color( 0.976471, 0.0117647, 0.0117647, 0.490196 ), Color( 0.976471, 0.0117647, 0.0117647, 0 ), Color( 0.976471, 0.0117647, 0.0117647, 0.490196 ), Color( 0.976471, 0.0117647, 0.0117647, 0 ), Color( 0.976471, 0.0117647, 0.0117647, 0.490196 ), Color( 0.976471, 0.0117647, 0.0117647, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Alarm:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true, true, false ]
+}
+
 [node name="UI" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -112,26 +133,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CoinLabel" type="Label" parent="."]
+[node name="InGame" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="CoinLabel" type="Label" parent="InGame"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -120.0
-margin_right = -80.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0.968627, 0.0392157, 0.0392157, 1 )
+margin_left = 864.0
+margin_right = 919.0
+margin_bottom = 24.0
+theme = ExtResource( 7 )
 text = "0 / 0"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Time" type="Label" parent="."]
+[node name="Time" type="Label" parent="InGame"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0.968627, 0.0392157, 0.0392157, 1 )
+margin_left = 461.0
+margin_right = 523.001
+margin_bottom = 32.0
+theme = SubResource( 5 )
+text = "0:00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="InGame"]
+margin_right = 192.0
+margin_bottom = 24.0
+theme = ExtResource( 7 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Alert" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.976471, 0.0117647, 0.0117647, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -143,51 +190,25 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -7.0
 margin_bottom = 7.0
+theme = ExtResource( 7 )
 custom_colors/font_color = Color( 0.0862745, 0.623529, 0.184314, 1 )
+text = "Go back now!"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScoreLabel" type="Label" parent="."]
-margin_right = 192.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0.968627, 0.0392157, 0.0392157, 1 )
-text = "0"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Menu" parent="." instance=ExtResource( 2 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -16.0
-margin_top = 192.0
-margin_right = 24.0
-margin_bottom = 232.0
-
-[node name="Start" parent="Menu" instance=ExtResource( 3 )]
-margin_right = 45.0
-text = "Retry"
-
-[node name="Quit" parent="Menu" instance=ExtResource( 4 )]
-text = "Quit"
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 90.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 1
 reset_on_save = false
-anims/RESET = SubResource( 1 )
 anims/end = SubResource( 2 )
 anims/instruction = SubResource( 3 )
+anims/time = SubResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -202,5 +223,9 @@ texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Alarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
